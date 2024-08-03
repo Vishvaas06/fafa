@@ -1,0 +1,8 @@
+:root {
+  --new-brand-blue: #161cbb;
+}
+
+.milky-glass {
+  backdrop-filter: blur(8px);
+  opacity: 0.75;
+}
