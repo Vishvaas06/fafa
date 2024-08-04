@@ -23,6 +23,24 @@ const NavigationMenu = React.forwardRef<
 ))
 NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName
 
+const NavigationLegacy = React.forwardRef<
+  React.ElementRef<typeof NavigationMenuPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
+>(({ className, children, ...props }, ref) => (
+  <NavigationMenuPrimitive.Root
+    ref={ref}
+    className={cn(
+      "relative mx-10 px-5 space-x-2 flex items-center justify-center",
+      className
+    )}
+    {...props}
+  >
+    {children}
+    <NavigationMenuViewport />
+  </NavigationMenuPrimitive.Root>
+))
+NavigationLegacy.displayName = NavigationMenuPrimitive.Root.displayName
+
 const NavigationMenuList = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.List>
@@ -118,6 +136,7 @@ NavigationMenuIndicator.displayName =
 export {
   navigationMenuTriggerStyle,
   NavigationMenu,
+  NavigationLegacy,
   NavigationMenuList,
   NavigationMenuItem,
   NavigationMenuContent,
